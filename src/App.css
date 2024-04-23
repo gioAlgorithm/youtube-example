@@ -1,38 +1,211 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  width: 100%;
   min-height: 100vh;
+  padding-bottom: 30rem;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;  
+}
+
+.modal-container{
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+  display: none;
+}
+.modal-active{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal{
+  max-width: 600px;
+  width: 90%;
+  min-height: 500px;
+  border-radius: 1rem;
+  background-color: white;
+  animation: dropFromTop 1s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+}
+@keyframes dropFromTop{
+  0%{
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100%{
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+.header{
+  width: 100%;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid rgb(230, 230, 230);
+  position: relative;
+}
+
+.close{
+  position: absolute;
+  left: 24px;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.content{
+  width: 100%;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+.title{
+  margin-bottom: 24px;
+  font-weight: 400;
+  font-size: 1.8rem;
+}
+
+/* email style */
+.email{
+  width: 100%;
+  position: relative;
+  border: 1px solid rgb(87, 87, 87);
+  border-top-left-radius: .5rem;
+  border-top-right-radius: .5rem;
+}
+.email-input{
+  width: 100%;
+  padding: .5rem 1rem;
+  padding-top: 1.5rem;
+  border-top-left-radius: .5rem;
+  border-top-right-radius: .5rem;
+  border: none;
+  outline: none;
+  font-size: 1.1rem;
+}
+.email-input:focus + .email-label{
+  transform: scale(0.75) translateY(-2rem);
+}
+.email-label{
+  position: absolute;
+  left: 1rem;
+  margin-top: 1.3rem;
+  font-size: 1.2rem;
+  transition: all 0.15s;
+  transform: translateY(-0.75rem);
+  z-index: 10;
+  top: .32rem;
+  transform-origin: 0;
+  pointer-events: none;
+}
+.email-label-active{
+  transform: scale(0.75) translateY(-2rem);
+  color: gray;
+}
+
+/* password styles */
+.password{
+  width: 100%;
+  position: relative;
+  border: 1px solid rgb(87, 87, 87);
+  border-bottom-left-radius: .5rem;
+  border-bottom-right-radius: .5rem;
+  border-top: none;
+}
+.password-input{
+  width: 100%;
+  padding: .5rem 1rem;
+  padding-top: 1.5rem;
+  border-bottom-left-radius: .5rem;
+  border-bottom-right-radius: .5rem;
+  border: none;
+  outline: none;
+  font-size: 1.1rem;
+}
+.password-input:focus + .password-label{
+  transform: scale(0.75) translateY(-2rem);
+}
+.password-label{
+  position: absolute;
+  left: 1rem;
+  margin-top: 1.3rem;
+  font-size: 1.2rem;
+  transition: all 0.15s;
+  transform: translateY(-0.75rem);
+  z-index: 10;
+  top: .32rem;
+  transform-origin: 0;
+  pointer-events: none;
+}
+.password-label-active{
+  transform: scale(0.75) translateY(-2rem);
+  color: gray;
+}
+
+.continue{
+  margin-top: 2rem;
+  width: 100%;
+  height: 3rem;
+  border-radius: .5rem;
+  border: none;
+  background-color: rgb(227, 63, 92);
+  font-size: 1.1rem;
   color: white;
+  cursor: pointer;
+  transition: all 1s;
+}
+.continue:hover{
+  background-color: rgb(224, 44, 77);
+}
+.or{
+  width: 100%;
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
-.App-link {
-  color: #61dafb;
+.or > span{
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  border-bottom: 1px solid rgb(230, 230, 230);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.or > h5{
+  padding: 0 1rem;
+  z-index: 10;
+  background-color: white;
+}
+
+.sign-in{
+  width: 100%;
+  height: 50px;
+  margin-bottom: 1rem;
+  border-radius: .3rem;
+  cursor: pointer;
+  background-color: white;
+  font-size: 1rem;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border: 1px solid black;
+}
+.sign-in:hover{
+  background-color: rgb(245, 245, 245);
+}
+.sign-in > svg{
+  position: absolute;
+  left: 1rem;
+  font-size: 1.2rem;
 }
